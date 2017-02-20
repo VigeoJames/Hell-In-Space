@@ -124,7 +124,7 @@ draw_text(x,y,"Congratulations!");
 
 //
 if (stopped) {
-    draw_text(x,y+20,"You ")
+    draw_text(x,y+40,"You ")
     draw_text(x,y+60,"made it....")
     }
 

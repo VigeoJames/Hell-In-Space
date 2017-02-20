@@ -35,29 +35,8 @@ alarm[pickup_spawner] = random_range(room_speed * 4, room_speed * 10); }
 blockedX = room_width / 2;
 blockedY = 0;
 newX = 0;
+monsterXpSpawned = false;
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string></string>
           </argument>
         </arguments>
       </action>
@@ -89,30 +68,38 @@ if (obj_control.spawn_enemies == true){
 // Check Stage
 if (obj_control.stage == 1){
 var chance = irandom_range(1,100);
+
 var enemy = choose(obj_enemy);
+if(chance &gt;75) {
+enemy = obj_enemy11
+monsterXpSpawned = true; }
 var alarmtime = random_range(room_speed * .2, room_speed * .4);
-if ( chance &gt; 98) {
-    enemy = obj_enemy11;}
-    
-}
+
+}}
+// Stage 2 Settings
 if (obj_control.stage == 2){
-var enemy = choose(obj_enemy1,obj_asteroid);
+var enemy = choose(obj_enemy,obj_asteroid);
 var alarmtime = random_range(room_speed * .2, room_speed * .4);
 }
 
 // Spawn Enemy in Non Blocked Position
 
 
+if !instance_exists(obj_boss1) {
 newX = irandom_range(192,room_width - 192)
 if (newX &gt; (blockedX+50)) || (newX &lt; (blockedX-50)) {
     instance_create(newX,-16,enemy);
     blockedX = newX;
-    }
-
-
-
-alarm[enemy_spawner] = alarmtime;
 }
+ }
+ 
+
+    
+
+
+if !instance_exists(obj_boss1){
+alarm[enemy_spawner] = alarmtime; }
+
 
 </string>
           </argument>

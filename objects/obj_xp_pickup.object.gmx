@@ -59,10 +59,12 @@ image_angle += 5;
 if (touched == true) {
     move_towards_point(obj_playerHud.x+20,obj_playerHud.y,10) 
     if (x &lt;= obj_playerHud.x+30) {
-        obj_ship.xp += 5;
+        if instance_exists(obj_ship) {
+        obj_ship.xp += 5;}
         instance_destroy();
         }
     }
+
 </string>
           </argument>
         </arguments>

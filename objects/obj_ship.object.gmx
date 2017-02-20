@@ -219,6 +219,36 @@ else
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_power_pickup">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Send Pickup to Xp Location
+with (other) {
+     if(touched == false){
+    set_Sound(a_powerup1,2,0,.1);
+    touched = true;}
+ 
+   
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_enemylaser">
       <action>
         <libid>1</libid>
@@ -329,10 +359,12 @@ with(other) {
             <kind>1</kind>
             <string>/// Send Pickup to Xp Location
 with (other) {
-    touched = true;
-    set_Sound(a_powerup1,2,0,.3);
-    }
-;
+     if(touched == false){
+    set_Sound(a_powerup1,2,0,.1);
+    touched = true;}
+ 
+   
+}
 </string>
           </argument>
         </arguments>

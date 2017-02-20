@@ -86,26 +86,29 @@ with(other) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// When hit
+            <string>
+
+
+/// When Hit
+audio_play_sound(a_playerHit,2,0);
+audio_sound_gain(a_playerHit,.2,0);
+hit = true;
 if instance_exists(obj_ship) {
-if (canCollide == true) {
+
 with(other) {
-  
+    
     damageText = instance_create(x,y,obj_damageText);
     //Set Damage to players attack power
 
     damageText.damage = obj_ship.attackPower + (irandom(3));
     global.damage = damageText.damage;
-    obj_ship.xp += 5;
     instance_create(x,y,obj_boss_explosion);
     instance_create(x,y,obj_boss_explosion2);
-   
-    } }
+    instance_destroy();
+    }
     // Do damage 
-    if (canCollide == true) {
-    armor -= global.damage;    
-    obj_enemy_parent.canCollide = false;
-} }
+armor -= global.damage;    
+}
 </string>
           </argument>
         </arguments>
@@ -203,7 +206,8 @@ with(other) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>obj_stored_spawner.noEnemies += 1;
+
 instance_destroy();
 
 </string>

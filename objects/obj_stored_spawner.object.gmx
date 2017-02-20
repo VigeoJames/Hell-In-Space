@@ -25,10 +25,21 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Init Spawner
-if(obj_control.spawn_enemies == true) { 
-alarm[enemy_spawner] = room_speed * 2; }
+            <string>
+/// Init Spawner
+
+alarm[enemy_spawner] = room_speed * 1; 
+
+
+blockedX = room_width / 2;
+blockedY = 0;
+newX = 0;
+monsterXpSpawned = false;
+
+noEnemies = 0;
 /*alarm[pickup_spawner] = random_range(room_speed * 4, room_speed * 10);
+
+
 
 </string>
           </argument>
@@ -75,18 +86,26 @@ alarm[enemy_spawner] = room_speed * 2; }
           <argument>
             <kind>1</kind>
             <string>/// Choose Enemy to Spawn
-if (obj_control.spawn_enemies == true){
-var enemy = choose(obj_asteroid);
-var alarmtime = random_range(room_speed * .5, room_speed * 2);
+if !instance_exists(obj_boss1) {
+if (noEnemies == 0) {
+alarm[enemy_spawner] = room_speed * 1;}
+if (noEnemies &gt; 0) {
+{
+var enemy = choose(obj_enemy);
+var alarmtime = room_speed *.75;
+newX = obj_enemy_spawner.newX;
 
 
 
-// Spawn Enemy
+// Spawn Enemy in Non Bloked Position
 
-instance_create(random_range(192, room_width - 192), - 16, enemy);
 
+if (newX &gt; (obj_enemy_spawner.blockedX+50)) || (newX &lt; (obj_enemy_spawner.blockedX-50)) {
+    instance_create(newX,-16,enemy);
+    blockedX = newX;
+    }
 alarm[enemy_spawner] = alarmtime;
-}
+} } }
 </string>
           </argument>
         </arguments>

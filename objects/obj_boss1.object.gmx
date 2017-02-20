@@ -190,8 +190,7 @@ if (y &lt; 100) {
         obj_control.spawn_boss = false;
         obj_control.attackDisable = true;
         obj_control.stage += 1;
-        instance_create(x,y,obj_score_Screen);
-        
+        instance_create(x,y,obj_score_Screen);        
         instance_destroy();
         with(obj_enemy_parent) {
             instance_destroy();}

@@ -66,8 +66,9 @@ screenShake = 0;
 
 
 // Debug Enemies
-spawn_enemies = true;;
+spawn_enemies = true;
 spawn_boss = false;
+
 
 gauge_xp = 1;
 
@@ -85,6 +86,16 @@ global.damage =0;
 
 // Set Pause Var
 global.pause = 0;
+
+
+
+
+// Create Particle System
+system = part_system_create();
+
+// Create Particle Type
+pt_explosion = create_part_type_sprite(spr_boss_explosion,true,25,30)
+
 
 // Spawn Random Text
 /*alarm[2] = room_speed * 1;
@@ -339,6 +350,31 @@ if !instance_exists(obj_ship) {
         }
 if (global.pause == 1) {
     game_end(); }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Destroy Particle System
+part_system_destroy(system);
+part_type_destroy(pt_explosion);
 </string>
           </argument>
         </arguments>

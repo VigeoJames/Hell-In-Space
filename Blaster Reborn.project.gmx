@@ -52,6 +52,7 @@
     <sprites name="Enemy Sprites">
       <sprite>sprites\spr_enemy11</sprite>
       <sprite>sprites\spr_enemy1</sprite>
+      <sprite>sprites\spr_enemy12</sprite>
       <sprite>sprites\spr_enemy2</sprite>
       <sprite>sprites\spr_speed_demon</sprite>
       <sprite>sprites\spr_boss1</sprite>
@@ -77,6 +78,7 @@
     <sprite>sprites\obj_fireball</sprite>
     <sprites name="Pickup Sprites">
       <sprite>sprites\spr_xp_pickup</sprite>
+      <sprite>sprites\spr_power_pickup</sprite>
       <sprite>sprites\spr_monster_xp</sprite>
     </sprites>
   </sprites>
@@ -90,6 +92,8 @@
     <script>scripts\add_gauge_xp.gml</script>
     <script>scripts\add_text_outline.gml</script>
     <script>scripts\set_Sound.gml</script>
+    <script>scripts\create_part_type_sprite.gml</script>
+    <script>scripts\create_explosion.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\f_8bit</font>
@@ -104,6 +108,7 @@
       <objects name="Powerups">
         <object>objects\obj_laserpowerup</object>
         <object>objects\obj_xp_pickup</object>
+        <object>objects\obj_power_pickup</object>
         <object>objects\obj_time_pickup</object>
         <object>objects\obj_monster_xp</object>
       </objects>
@@ -117,6 +122,7 @@
     <objects name="Enemies">
       <object>objects\obj_enemy11</object>
       <object>objects\obj_enemy</object>
+      <object>objects\obj_enemy12</object>
       <object>objects\obj_enemy3</object>
       <object>objects\obj_speed_demon</object>
       <object>objects\obj_enemy2</object>
@@ -146,7 +152,7 @@
     </objects>
     <objects name="Game Control">
       <object>objects\obj_enemy_spawner</object>
-      <object>objects\obj_enemy_spawner2</object>
+      <object>objects\obj_stored_spawner</object>
       <object>objects\obj_boss_spawner</object>
       <object>objects\obj_control</object>
       <object>objects\obj_playerHud</object>
@@ -158,6 +164,7 @@
       <object>objects\obj_random_text</object>
       <object>objects\obj_pause</object>
     </objects>
+    <object>objects\obj_particle_creator</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_menu</room>

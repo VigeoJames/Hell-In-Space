@@ -36,6 +36,8 @@ vspeed = defaultSpeed;
 armor = 3;
 alarm[enemy_laser] = 1;
 image_speed =0.2;
+currentX = 0;
+homing = false;
 
 </string>
           </argument>
@@ -100,23 +102,31 @@ else
     {
     vspeed = defaultSpeed; }
     
+if (homing == true) {
+    if instance_exists(obj_ship) {
+    move_towards_point(obj_ship.x,1000,3) ;
+        } }
+    
 // Death Code
 
 if (armor &lt; 1) {
     
+    create_explosion(x,y);
     
     
     var chance 
     chance = irandom_range(1,100)
-    if(chance &gt;= 1) {
-        instance_create(x,y,obj_xp_pickup); }
+    if(chance &gt;= 98) {
+        instance_create(x,y,obj_power_pickup); }
+    else {
+        instance_create(x,y,obj_xp_pickup);
    
     instance_destroy();
     
     
     }
 
-
+}
 </string>
           </argument>
         </arguments>
